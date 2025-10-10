@@ -221,6 +221,51 @@ a:hover .tooltip,
     font-size: 3rem;
 }
 
+.home-info h3 span
+{
+    position:relative;
+    display:inline-block;
+    color:transparent;
+    -webkit-text-stroke: .7px var(--main-color);
+    animation: display-text 12s linear infinite;
+    animation-delay: calc(-3s * var(--i));
+}
+
+@keyframes display-text
+{
+    25%, 
+    100%
+    {
+        display:none;
+    }
+}
+
+.home-info h3 span::before
+{
+    content: attr(data-text);
+    position:absolute;
+    width: 0;
+    border-right: 2px solid var(--main-color);
+    color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 3s linear infinite;
+}
+
+@keyframes fill-text
+{
+    10%,
+    100%
+    {
+        width:0;
+    }
+    70%,
+    90%
+    {
+        width:100%;
+    }
+}
+
 .desc {
     margin: 1rem 0 2rem;
 }
@@ -801,4 +846,5 @@ a:hover .tooltip,
         width: 20rem;
         height: 20rem;
     }
+
 }
